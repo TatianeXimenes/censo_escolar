@@ -1,0 +1,33 @@
+# 📊 Processamento de Dados do ENEM 2024
+
+## Descrição
+Pipeline de ETL para padronização dos microdados socioeconômicos do ENEM 2024, utilizando Dask para processamento eficiente.
+
+## Diferenciais vs ENEM 1998
+- **Foco atual**: Variáveis socioeconômicas relevantes para 2024
+- **Tecnologia**: Inclui WiFi, computador, acesso à internet
+- **Renda atualizada**: Valores em reais de 2024
+- **Questões modernas**: Reflete realidade contemporânea
+
+## Variáveis Processadas (25 no total)
+- **Identificação**: Inscrição, ano
+- **Demográficas**: Idade, sexo, estado civil, raça/cor, nacionalidade
+- **Educacionais**: Situação de conclusão, ano, tipo de ensino, escola do EM
+- **Socioeconômicas**: 
+  - Escolaridade dos pais
+  - Composição familiar
+  - Renda familiar
+  - Bens: carro, eletrodomésticos, tecnologia
+  - Empregada doméstica
+
+## Insights do Dataset 2024
+1. **Tecnologia presente**: WiFi e PC como indicadores de acesso
+2. **Renda detalhada**: 17 faixas salariais atualizadas
+3. **Educação diversa**: Múltiplos cenários de conclusão do EM
+4. **Trabalho doméstico**: Frequência de empregada como indicador socioeconômico
+
+## Como Executar
+```bash
+pip install "dask[complete]"
+python enem_2024.py
+

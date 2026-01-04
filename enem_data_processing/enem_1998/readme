@@ -1,0 +1,113 @@
+# 📊 Processamento de Dados do ENEM 1998 com Dask
+## Descrição
+Este projeto realiza o processamento e padronização dos microdados do ENEM 1998 utilizando a biblioteca Dask para manipulação eficiente de grandes volumes de dados. O código transforma dados brutos em um formato estruturado e padronizado para análise.
+
+## Objetivos
+1. Processar grandes volumes de dados do ENEM 1998 de forma eficiente
+2. Renomear e padronizar variáveis para melhor compreensão
+3. Converter códigos categóricos em rótulos descritivos
+4. Exportar dados em formatos otimizados (Parquet) para análise posterior
+
+## Tecnologias Utilizadas
+Python 3
+Dask: Processamento paralelo de grandes datasets
+PyArrow: Formato Parquet para armazenamento eficiente
+Pandas: Manipulação auxiliar de dados
+
+## Estrutura do Processamento
+1. Carregamento de Dados
+Leitura do arquivo CSV original com dask.dataframe
+Tratamento de valores faltantes com assume_missing=True
+Dataset: MICRODADOS_ENEM_1998.csv (~500k+ registros)
+
+2. Seleção de Variáveis
+Filtro de 60 colunas relevantes, incluindo:
+Dados demográficos (idade, sexo, estado)
+Desempenho (notas objetivas e redação)
+Questionário socioeconômico (56 variáveis)
+
+3. Padronização Completa
+Renomeação de Colunas
+Mapeamento de Valores Categóricos
+
+4. Tipagem de Dados
+Categóricas: 56 variáveis convertidas para tipo category
+Numéricas: Notas e ano mantidas como int64
+Otimização de memória e desempenho
+
+5. Exportação
+Formato Parquet (recomendado): enem_1998/
+Compressão Snappy para eficiência
+Validação da escrita/leitura
+
+## Como Executar
+Instalação:
+pip install "dask[complete]" pandas pyarrow
+
+Execução:
+python enem_1998.py
+
+
+## Dados Processados
+### Variáveis Principais
+Demográficas: Idade, sexo, UF, raça/cor, estado civil
+Educacionais: Escolaridade dos pais, tipo de escola, conclusão do ensino médio
+Socioeconômicas: Renda, trabalho, bens domésticos
+Interesses: Acompanhamento de política, esportes, cultura
+Desempenho: Notas objetivas e de redação
+
+### Saídas Geradas
+1. DataFrame Padronizado
+60 colunas renomeadas
+Valores descritivos em português
+Tipos otimizados
+
+2. Arquivos Parquet
+Particionados automaticamente
+Comprimidos (snappy)
+Prontos para análise no BigQuery, Spark, etc.
+
+3. Validações
+Contagem de linhas/colunas
+Verificação de tipos de dados
+Distribuição de valores por variável
+
+### Insights do Código
+Boas Práticas Implementadas
+Processamento Lazy: Dask só computa quando necessário
+Otimização de Memória: Uso de tipos categóricos
+Padronização Consistente: Dicionários centralizados
+Validação: Verificação após escrita
+
+### Pontos de Destaque
+Escalabilidade: Processa milhões de registros com eficiência
+Reprodutibilidade: Transformações completamente documentadas
+Interoperabilidade: Saída compatível com múltiplas ferramentas
+
+## Aplicações
+1. Análise Educacional
+Correlação entre fatores socioeconômicos e desempenho
+Perfil dos candidatos do primeiro ENEM
+Evolução histórica do exame
+2. Ciência de Dados
+Exemplo de ETL com Dask
+Padronização de dados categóricos
+Otimização de pipelines de dados
+
+## Próximos Passos Possíveis
+1. Análise Exploratória
+Estatísticas descritivas
+Visualizações gráficas
+Correlações entre variáveis
+
+2. Pipeline Completo
+Download automático dos dados
+Processamento em lote para múltiplos anos
+Upload para BigQuery/Data Warehouse
+
+3. Aplicações de ML
+Predição de notas
+Clusterização de perfis
+Análise de fatores de sucesso
+
+
