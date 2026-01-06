@@ -1,0 +1,117 @@
+# Descrição do Projeto
+Este projeto implementa três classificadores diferentes usando Redes Neurais Artificiais (RNA) em Python, explorando desde o Perceptron simples até MLPs mais complexos para diferentes tipos de dados.
+
+## Objetivos de Aprendizado
+Implementar um Perceptron para classificação multiclasse
+Utilizar MLPClassifier para dados categóricos
+Trabalhar com dados sintéticos gerados aleatoriamente
+Avaliar modelos com métricas de acurácia e matriz de confusão
+Experimentar com hiperparâmetros de redes neurais
+
+## Estrutura do Projeto
+Exercício 1: Classificador Perceptron para Dígitos
+Base de dados: sklearn.datasets.load_digits() (1797 imagens de dígitos)
+Modelo: Perceptron do sklearn.linear_model
+Tarefa: Classificação de dígitos 0-9
+Resultado: Acurácia e matriz de confusão
+
+Exercício 2: Classificador MLP para PlayTennis
+Base de dados: PlayTennis.csv (dados categóricos)
+Pré-processamento: LabelEncoder para variáveis categóricas
+Modelo: MLPClassifier do sklearn.neural_network
+Tarefa: Classificação binária (jogar/não jogar tênis)
+Hiperparâmetros ajustados: max_iter, alpha, tol
+
+Exercício 3: Classificador MLP para Dados Aleatórios
+Base de dados: Gerada com make_classification()
+Características: 200 amostras, 4 features
+Modelo: MLPClassifier com diferentes configurações
+Objetivo: Testar robustez em dados sintéticos
+
+## Tecnologias Utilizadas
+Python 3
+scikit-learn: Perceptron, MLPClassifier, métricas
+pandas: Manipulação de dados
+NumPy: Operações numéricas
+
+## Como Executar
+1. Instalação das Dependências
+pip install scikit-learn pandas numpy
+
+2. Executar o Código
+python data_classifiers_RNA.py
+
+## Resultados e Métricas
+Métricas Implementadas
+Acurácia (Score): clf.score(X, y)
+Matriz de Confusão: confusion_matrix(y, y_pred)
+
+## Hiperparâmetros Testados
+- Perceptron
+clf = Perceptron(tol=1e-3, random_state=0, max_iter=1000)
+
+- MLPClassifier
+clf = MLPClassifier(alpha=1e-05, tol=1e-4, random_state=0, max_iter=10000)
+clf = MLPClassifier(alpha=1e-03, tol=1e-2, random_state=0, max_iter=9000)
+clf = MLPClassifier(alpha=1e-03, tol=1e-3, random_state=0, max_iter=8000)
+
+## Análise dos Modelos
+- Perceptron
+Vantagens: Simples, rápido, bom para problemas linearmente separáveis
+Limitações: Não resolve problemas não-lineares complexos
+Aplicação: Classificação básica de dígitos
+
+- MLP (Multi-Layer Perceptron)
+Vantagens: Pode aprender relações não-lineares, mais flexível
+Configuração: Permite ajuste de múltiplos hiperparâmetros
+Aplicação: Dados categóricos e sintéticos
+
+## Experimentação
+- Parâmetros Ajustáveis:
+max_iter: Número máximo de iterações
+alpha: Termo de regularização
+tol: Tolerância para parada precoce
+random_state: Semente para reproducibilidade
+
+- Impacto dos Hiperparâmetros:
+alpha maior: Mais regularização, menos overfitting
+tol menor: Treinamento mais preciso, mas mais lento
+max_iter maior: Mais chance de convergência
+
+## Observações Importantes
+- Problemas Identificados no Código:
+Reutilização de variáveis: O código reusa X e y entre exercícios
+Treinamento inconsistente: Algumas células não treinam o modelo MLP corretamente
+Avaliação nos dados de treino: As métricas são calculadas nos mesmos dados usados para treinar
+
+- Melhorias Sugeridas:
+Separar dados em treino/teste
+Usar validação cruzada
+Adicionar visualizações (gráficos de aprendizado)
+Testar diferentes arquiteturas de rede
+
+## Conceitos de IA Aplicados
+1. Aprendizado Supervisionado
+Classificação com rótulos conhecidos
+Ajuste de pesos baseado em erro
+
+2. Redes Neurais Artificiais
+Perceptron: Camada única
+MLP: Múltiplas camadas (input, hidden, output)
+
+3. Avaliação de Modelos
+Métricas quantitativas (acurácia)
+Análise qualitativa (matriz de confusão)
+
+#👤 Autor
+Projeto desenvolvido para a disciplina BSE038 - Inteligência Artificial, demonstrando habilidades em:
+Implementação de algoritmos de IA
+Pré-processamento de dados
+Avaliação de modelos de classificação
+Experimentação com hiperparâmetros
+
+## Próximos Passos
+Implementar validação cruzada
+Adicionar visualização dos resultados
+Testar com mais bases de dados
+Comparar com outros classificadores (SVM, Random Forest)
